@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AETHER // Super-Intelligence Flow Sanctuary</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body class="theme-aurora">
+    <!-- Generative Starfield & Ambient Reactive Canvas -->
+    <canvas id="ambient-canvas"></canvas>
+
+    <!-- Aura Ambient Glow Underlays -->
+    <div class="ambient-glow glow-top"></div>
+    <div class="ambient-glow glow-bottom"></div>
+
+    <div class="sanctuary-wrapper">
+        <!-- Sanctuary Navigation Header -->
+        <header class="sanctuary-header">
+            <div class="brand-group">
+                <div class="brand-glyph">
+                    <span class="glyph-core"></span>
+                    <span class="glyph-ring"></span>
+                </div>
+                <div class="brand-titles">
+                    <h1 class="brand-name">AETHER<span class="brand-ver">//01</span></h1>
+                    <p class="brand-tag">COGNITIVE SANCTUARY & TEMPORAL FLOW ENGINE</p>
+                </div>
+            </div>
+
+            <div class="header-actions">
+                <div class="telemetry-pill" id="telemetryPill" title="Live Java Backend Telemetry">
+                    <span class="status-dot"></span>
+                    <span class="telemetry-text" id="telemetryText">JAVA CORE: CONNECTING...</span>
+                </div>
+
+                <div class="control-group">
+                    <button class="icon-btn" id="soundToggleBtn" title="Toggle Soundscape Audio (Space)" aria-label="Toggle Sound">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                        </svg>
+                    </button>
+                    <button class="icon-btn" id="fullscreenBtn" title="Immersive Fullscreen (F)" aria-label="Toggle Fullscreen">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Grid Interface -->
+        <main class="sanctuary-grid">
+            
+            <!-- Left Panel: Flow Timer & Spatial Soundscape -->
+            <section class="sanctuary-card timer-card">
+                <div class="card-header">
+                    <div class="section-tag">TEMPORAL IMMERSION</div>
+                    <div class="mode-chips" id="modeChips">
+                        <button class="chip active" data-time="1500" data-label="DEEP FLOW">25M</button>
+                        <button class="chip" data-time="3000" data-label="ULTRASONIC">50M</button>
+                        <button class="chip" data-time="5400" data-label="TRANSCEND">90M</button>
+                        <button class="chip" data-time="300" data-label="NEURO-RESET">5M</button>
+                    </div>
+                </div>
+
+                <!-- Radial Clockwork Stage -->
+                <div class="radial-stage">
+                    <div class="timer-dial-container">
+                        <svg class="timer-svg" viewBox="0 0 320 320">
+                            <defs>
+                                <linearGradient id="timerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#00f5d4" />
+                                    <stop offset="50%" stop-color="#7928ca" />
+                                    <stop offset="100%" stop-color="#4cc9f0" />
+                                </linearGradient>
+                                <filter id="glowFilter" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feGaussianBlur stdDeviation="8" result="blur" />
+                                    <feMerge>
+                                        <feMergeNode in="blur" />
+                                        <feMergeNode in="SourceGraphic" />
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            <circle class="timer-track" cx="160" cy="160" r="135" />
+                            <circle class="timer-progress" id="timerProgress" cx="160" cy="160" r="135" filter="url(#glowFilter)" />
+                        </svg>
+
+                        <div class="timer-readout">
+                            <span class="timer-mode-label" id="timerModeLabel">DEEP FLOW</span>
+                            <div class="timer-digits" id="timerDisplay">25:00</div>
+                            <span class="timer-sublabel" id="timerStatusLabel">AWAITING INTENTION</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timer Controls -->
+                <div class="timer-controls">
+                    <button class="btn btn-secondary" id="resetBtn" title="Reset Session">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
+                        <span>RESET</span>
+                    </button>
+                    <button class="btn btn-primary" id="startBtn">
+                        <svg id="playIcon" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        <span id="startBtnText">INITIATE FLOW</span>
+                    </button>
+                </div>
+
+                <!-- Acoustic Neural Synthesizer -->
+                <div class="soundscape-matrix">
+                    <div class="matrix-header">
+                        <span class="matrix-title">NEURAL FREQUENCY SYNTHESIZER</span>
+                        <span class="audio-state-tag" id="audioStateTag">STANDBY</span>
+                    </div>
+
+                    <div class="sound-presets-grid">
+                        <button class="sound-chip active" data-freq="432" data-type="sine" data-mode="harmonic">
+                            <span class="sound-name">432 Hz</span>
+                            <span class="sound-desc">Deep Harmony</span>
+                        </button>
+                        <button class="sound-chip" data-freq="528" data-type="triangle" data-mode="clarity">
+                            <span class="sound-name">528 Hz</span>
+                            <span class="sound-desc">Cellular Clarity</span>
+                        </button>
+                        <button class="sound-chip" data-freq="40" data-type="sine" data-mode="gamma">
+                            <span class="sound-name">40 Hz</span>
+                            <span class="sound-desc">Gamma Focus</span>
+                        </button>
+                        <button class="sound-chip" data-mode="noise">
+                            <span class="sound-name">Pink Aura</span>
+                            <span class="sound-desc">Cosmic Drift</span>
+                        </button>
+                    </div>
+
+                    <div class="volume-slider-group">
+                        <span class="vol-label">RESONANCE VOLUME</span>
+                        <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.01" value="0.35">
+                        <span class="vol-pct" id="volPct">35%</span>
+                    </div>
+
+                    <!-- Live Audio Canvas Visualizer -->
+                    <canvas id="audio-viz" class="audio-visualizer-canvas" height="36"></canvas>
+                </div>
+            </section>
+
+            <!-- Right Panel: Super Intelligence Oracle & Thought Forge -->
+            <section class="sanctuary-card knowledge-card">
+                
+                <!-- Oracle Insight Box -->
+                <div class="oracle-container">
+                    <div class="card-header">
+                        <div class="section-tag">SUPER-INTELLIGENCE COGNITIVE AXIOM</div>
+                        <button class="btn-micro" id="refreshInsightBtn" title="Request Fresh Axiom">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path></svg>
+                            <span>NEW AXIOM</span>
+                        </button>
+                    </div>
+                    <blockquote class="axiom-quote" id="axiomQuote">
+                        “Intelligence is the compression of chaos into elegant, high-leverage order.”
+                    </blockquote>
+                    <div class="axiom-meta">
+                        <span class="axiom-source">SYNTHESIZED VIA JAVA ARCHITECTURE CORE</span>
+                        <span class="axiom-id" id="axiomId">AXIOM #00</span>
+                    </div>
+                </div>
+
+                <!-- Thought Forge Section -->
+                <div class="thought-forge-container">
+                    <div class="card-header">
+                        <div class="section-tag">COGNITIVE STREAM & REFLECTION FORGE</div>
+                        <button class="btn-micro text-danger" id="clearThoughtsBtn" title="Clear all thoughts">
+                            RESET LOGS
+                        </button>
+                    </div>
+
+                    <!-- Input Console -->
+                    <form id="thoughtForm" class="thought-input-console">
+                        <div class="input-row">
+                            <input type="text" id="thoughtInput" class="thought-input" placeholder="Capture a breakthrough spark, strategy, or realization..." autocomplete="off" maxlength="160" required>
+                            <button type="submit" class="btn btn-accent" id="recordThoughtBtn">
+                                <span>DISTILL</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                            </button>
+                        </div>
+                        <div class="tags-selector" id="tagSelector">
+                            <span class="tag-chip active" data-tag="CLARITY">#CLARITY</span>
+                            <span class="tag-chip" data-tag="STRATEGY">#STRATEGY</span>
+                            <span class="tag-chip" data-tag="EUREKA">#EUREKA</span>
+                            <span class="tag-chip" data-tag="ARCHITECT">#ARCHITECT</span>
+                        </div>
+                    </form>
+
+                    <!-- Thoughts Feed -->
+                    <div class="thoughts-feed" id="thoughtsFeed">
+                        <div class="empty-feed-placeholder">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                            <p>No cognitive streams recorded yet. Distill your first intention above.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- System Architecture Telemetry -->
+                <div class="specs-footer">
+                    <div class="spec-item">
+                        <span class="spec-label">RUNTIME</span>
+                        <span class="spec-val" id="specRuntime">JAVA STANDARD 11+</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">DEPENDENCIES</span>
+                        <span class="spec-val">0 (ZERO LIBS)</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">LATENCY</span>
+                        <span class="spec-val" id="specPing">-- ms</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">STATE PERSISTENCE</span>
+                        <span class="spec-val">JSON VAULT</span>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+
+        <!-- Sanctuary Micro Footer -->
+        <footer class="sanctuary-footer">
+            <div class="footer-left">
+                <span>&copy; AETHER TEMPORAL SYSTEM</span>
+                <span class="separator">&bull;</span>
+                <span>ENGINEERED FOR TRANSCENDENT INTELLECT</span>
+            </div>
+            <div class="footer-right">
+                <span class="hotkey-pill"><kbd>SPACE</kbd> SOUND</span>
+                <span class="hotkey-pill"><kbd>F</kbd> FULLSCREEN</span>
+                <span class="hotkey-pill"><kbd>ENTER</kbd> LOG</span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="/app.js"></script>
+</body>
+</html>
