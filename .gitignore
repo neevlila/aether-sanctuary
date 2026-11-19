@@ -1,0 +1,16 @@
+# Build & Binaries
+bin/
+target/
+*.class
+*.jar
+
+# Python cache (preview helper)
+__pycache__/
+*.pyc
+
+# Local runtime state
+aether_data.json
+
+# System files
+.DS_Store
+Thumbs.db
